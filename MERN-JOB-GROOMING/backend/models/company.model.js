@@ -2,18 +2,19 @@ const mongoose =require('mongoose');
 const companySchema= new mongoose.Schema({
     name:{
         type:String,
-        required:true
+        required:true,
+        unique:true
     }, 
     description:{
         type:String,
-        required:true
+       
     },
     website:{
         type:String,   
     },
     location:{
         type:String,
-        required:true,
+        
     },
     logo:{
         type:String
@@ -21,17 +22,18 @@ const companySchema= new mongoose.Schema({
     userId:{
         type:mongoose.Schema.Types.ObjectId,
         ref:'User',
-        required:true
+       
     },
     applications:[
         {
             type:mongoose.Schema.Types.ObjectId,
             ref:'Application',
-         
+            required:true,
         }
     ]
 
 },{ timestamps:true}
 )
 
-export const Company= mongoose.model("Company",companySchema);
+ const Company= mongoose.model("Company",companySchema);
+module.exports = Company;
