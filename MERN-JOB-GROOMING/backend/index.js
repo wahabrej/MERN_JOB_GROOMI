@@ -6,8 +6,8 @@ const connectDB = require('./utils/db.js');  
 
 const userRoute = require('./routes/user.route.js');
 const companyRoute = require('./routes/company.route.js');
-//const jobRoute = require('./routes/job.route.js');
-//const applicationRoute = require('./routes/application.route.js');
+const jobRoute = require('./routes/job.route.js');
+const applicationRoute = require('./routes/application.route.js');
 dotenv.config({});
 
 const app = express();
@@ -29,8 +29,8 @@ const PORT = process.env.PORT || 3000;
 // api's
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/company", companyRoute);
-//app.use("/api/v1/job", jobRoute);
-//app.use("/api/v1/application", applicationRoute);
+app.use("/api/v1/job", jobRoute);
+app.use("/api/v1/application", applicationRoute);
 
 
 
